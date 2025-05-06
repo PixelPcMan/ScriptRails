@@ -1,0 +1,12 @@
+local modelToDuplicate = game.Workspace.RuntimeItems:FindFirstChild("Model_Unicorn")
+
+if modelToDuplicate then
+    local duplicatedModel = modelToDuplicate:Clone() -- Clona el modelo
+    duplicatedModel.Parent = game.Workspace.RuntimeItems -- Establece el padre del modelo clonado
+
+    local heightOffset = 5 -- Ajusta esta variable para cambiar la distancia vertical
+    local newPosition = modelToDuplicate.PrimaryPart.Position + Vector3.new(0, heightOffset, 0) -- Calcula la nueva posición
+    duplicatedModel:SetPrimaryPartCFrame(CFrame.new(newPosition)) -- Mueve la copia a la nueva posición
+else
+    warn("El modelo 'Model_Unicorn' no fue encontrado en 'RuntimeItems'.")
+end
